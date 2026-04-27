@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bhvesa Classes | Academic & Digital Marketing Coaching</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1E293B",
+            secondary: "#6366F1",
+            accent: "#F59E0B",
+            softBg: "#F9FAFB",
+            darkText: "#0F172A"
+          },
+          fontFamily: {
+            heading: ["Poppins", "sans-serif"],
+            body: ["Inter", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: "Inter", sans-serif; }
+
+    .hero-pattern {
+      background:
+        radial-gradient(circle at top left, rgba(99,102,241,0.18), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(245,158,11,0.20), transparent 30%),
+        linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+    }
+
+    .nav-link { position: relative; }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: #F59E0B;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after { width: 100%; }
+
+.reveal,
+.reveal-left,
+.reveal-right,
+.reveal-zoom {
+  opacity: 0;
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s ease;
+  transition-delay: var(--delay, 0s);
+}
+
+.reveal {
+  transform: translateY(45px);
+}
+
+.reveal-left {
+  transform: translateX(-45px);
+}
+
+.reveal-right {
+  transform: translateX(45px);
+}
+
+.reveal-zoom {
+  transform: scale(0.92);
+}
+
+.reveal.active,
+.reveal-left.active,
+.reveal-right.active,
+.reveal-zoom.active {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+.nav-drop {
+  opacity: 0;
+  transform: translateY(-18px);
+  animation: navDrop 0.75s ease forwards;
+  animation-delay: var(--nav-delay, 0s);
+}
+
+@keyframes navDrop {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+section {
+  scroll-margin-top: 120px;
+}
+.carousel-slide {
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 1s ease, transform 1.5s ease;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+  </style>
+</head>
+
+<body class="bg-softBg text-darkText">
+
+<!-- HEADER -->
+<header id="mainHeader" class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+
+      <a href="#home" class="nav-drop flex items-center gap-3" style="--nav-delay: 0.05s;">
+        <div class="w-12 h-12 rounded-2xl bg-primary text-white flex items-center justify-center font-bold text-xl">B</div>
+        <div>
+          <h1 class="font-heading text-xl font-bold text-primary leading-tight">Bhvesa Classes</h1>
+          <p class="text-xs text-slate-500">Learn • Grow • Succeed</p>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8 text-[15px] font-semibold text-slate-700">
+        <a href="#home" class="nav-drop nav-link hover:text-secondary" style="--nav-delay: 0.15s;">Home</a>
+        <a href="#about" class="nav-drop nav-link hover:text-secondary" style="--nav-delay: 0.25s;">About</a>
+        <a href="#usp" class="nav-drop nav-link hover:text-secondary" style="--nav-delay: 0.35s;">Why Us</a>
+        <a href="#digital" class="nav-drop nav-link hover:text-secondary" style="--nav-delay: 0.45s;">Digital Marketing</a>
+        <a href="#academic" class="nav-drop nav-link hover:text-secondary" style="--nav-delay: 0.55s;">Coaching</a>
+        <a href="#contact" class="nav-drop nav-link hover:text-secondary" style="--nav-delay: 0.65s;">Contact</a>
+      </nav>
+
+      <a href="#contact" class="nav-drop hidden lg:inline-flex bg-accent hover:bg-yellow-500 text-primary font-bold px-5 py-3 rounded-full transition" style="--nav-delay: 0.75s;">
+        Enroll Now
+      </a>
+
+      <button id="menuToggle" class="lg:hidden w-11 h-11 rounded-xl border border-slate-300 flex flex-col items-center justify-center gap-1.5">
+        <span class="line1 w-6 h-0.5 bg-primary transition"></span>
+        <span class="line2 w-6 h-0.5 bg-primary transition"></span>
+        <span class="line3 w-6 h-0.5 bg-primary transition"></span>
+      </button>
+
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-slate-200">
+    <nav class="px-5 py-5 flex flex-col gap-4 font-semibold text-slate-700">
+      <a href="#home" class="mobile-link">Home</a>
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#usp" class="mobile-link">Why Us</a>
+      <a href="#digital" class="mobile-link">Digital Marketing</a>
+      <a href="#academic" class="mobile-link">Coaching</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+    </nav>
+  </div>
+</header>
+
+  <!-- HERO -->
+  <section id="home" class="hero-pattern pt-32 pb-20 lg:pt-40 lg:pb-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+
+      <div class="reveal">
+        <span class="inline-flex bg-indigo-100 text-secondary px-4 py-2 rounded-full font-bold text-sm mb-6">
+          Academic + Skill-Based Learning
+        </span>
+
+        <h2 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-primary leading-tight">
+          Learn Better. <br>Grow Smarter.
+        </h2>
+
+        <p class="mt-6 text-lg text-slate-600 leading-8 max-w-xl">
+          Bhvesa Classes provides coaching, competitive exam preparation, and practical digital marketing training with focused guidance and strong concept clarity.
+        </p>
+
+        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+          <a href="#courses" class="bg-secondary hover:bg-indigo-700 text-white px-7 py-4 rounded-full font-bold text-center transition">
+            Explore Courses
+          </a>
+          <a href="#contact" class="bg-accent hover:bg-yellow-500 text-primary px-7 py-4 rounded-full font-bold text-center transition">
+            Book Demo Class
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-carousel relative w-full h-[400px] rounded-[1.5rem] overflow-hidden">
+
+  <div class="carousel-slide active absolute inset-0">
+    <img src="assets/images/1.png" alt="Bhvesa Classes image 1" class="w-full h-full object-cover">
+  </div>
+
+  <div class="carousel-slide absolute inset-0">
+    <img src="assets/images/2.png" alt="Bhvesa Classes image 2" class="w-full h-full object-cover">
+  </div>
+
+  <div class="carousel-slide absolute inset-0">
+    <img src="assets/images/3.png" alt="Bhvesa Classes image 3" class="w-full h-full object-cover">
+  </div>
+
+  <div class="carousel-slide absolute inset-0">
+    <img src="assets/images/4.png" alt="Bhvesa Classes image 4" class="w-full h-full object-cover">
+  </div>
+
+  <div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent"></div>
+
+  <div class="absolute bottom-6 left-6 right-6 text-white">
+    <span class="inline-block bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-sm font-bold mb-3">
+      Bhvesa Classes
+    </span>
+    <h3 class="font-heading text-2xl font-extrabold">Learning That Builds Confidence</h3>
+  </div>
+
+</div>
+
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+  <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white"></button>
+  <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/50"></button>
+  <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/50"></button>
+  <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/50"></button>
+</div>
+
+    </div>
+  </section>
+
+<!-- STATS MOVED HERE -->
+<section class="bg-white -mt-10 relative z-10">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid sm:grid-cols-3 gap-5 bg-white rounded-[2rem] shadow-xl border border-slate-100 p-5" data-stagger-group>
+
+      <div class="reveal-zoom text-center p-6 rounded-3xl bg-softBg">
+        <h3 class="text-4xl font-extrabold text-primary">
+          <span class="stat-number" data-target="15">0</span>+
+        </h3>
+        <p class="text-slate-500 mt-2 font-medium">Years Experience</p>
+      </div>
+
+      <div class="reveal-zoom text-center p-6 rounded-3xl bg-softBg">
+        <h3 class="text-4xl font-extrabold text-primary">
+          <span class="stat-number" data-target="1000">0</span>+
+        </h3>
+        <p class="text-slate-500 mt-2 font-medium">Students Guided</p>
+      </div>
+
+      <div class="reveal-zoom text-center p-6 rounded-3xl bg-softBg">
+        <h3 class="text-4xl font-extrabold text-primary">
+          <span class="stat-number" data-target="2">0</span>
+        </h3>
+        <p class="text-slate-500 mt-2 font-medium">Learning Tracks</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+      <div class="reveal">
+        <span class="text-secondary font-bold uppercase tracking-wider text-sm">About Bhvesa Classes</span>
+
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary mt-3 leading-tight">
+          Focused Learning for Better Marks, Better Skills and Better Future
+        </h2>
+
+        <p class="mt-6 text-slate-600 text-lg leading-8">
+          Bhvesa Classes is a trusted learning place for students who need strong academic support and learners who want practical career skills. We focus on clear explanation, regular practice, doubt solving and personal guidance.
+        </p>
+
+        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+          <a href="#academic" class="bg-secondary hover:bg-indigo-700 text-white px-6 py-3 rounded-full font-bold text-center transition">
+            Coaching
+          </a>
+          <a href="#digital" class="bg-accent hover:bg-yellow-500 text-primary px-6 py-3 rounded-full font-bold text-center transition">
+            Digital Marketing
+          </a>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-5" data-stagger-group>
+        <div class="reveal-zoom bg-softBg rounded-[2rem] p-6 border border-slate-200 hover:shadow-lg transition">
+          <div class="w-14 h-14 rounded-2xl bg-indigo-100 flex items-center justify-center text-2xl mb-5">📚</div>
+          <h3 class="font-bold text-primary text-xl mb-2">Academic Support</h3>
+          <p class="text-slate-500 leading-7 text-sm">
+            Coaching for school students with focus on basics, revision and exam preparation.
+          </p>
+        </div>
+
+        <div class="reveal-zoom bg-softBg rounded-[2rem] p-6 border border-slate-200 hover:shadow-lg transition">
+          <div class="w-14 h-14 rounded-2xl bg-yellow-100 flex items-center justify-center text-2xl mb-5">💻</div>
+          <h3 class="font-bold text-primary text-xl mb-2">Digital Skills</h3>
+          <p class="text-slate-500 leading-7 text-sm">
+            Practical digital marketing training for jobs, freelancing and business growth.
+          </p>
+        </div>
+
+        <div class="reveal-zoom bg-softBg rounded-[2rem] p-6 border border-slate-200 hover:shadow-lg transition">
+          <div class="w-14 h-14 rounded-2xl bg-indigo-100 flex items-center justify-center text-2xl mb-5">🎯</div>
+          <h3 class="font-bold text-primary text-xl mb-2">Result Focused</h3>
+          <p class="text-slate-500 leading-7 text-sm">
+            Regular practice, tests and doubt sessions to improve confidence and performance.
+          </p>
+        </div>
+
+        <div class="reveal-zoom bg-primary text-white rounded-[2rem] p-6 hover:shadow-lg transition">
+          <div class="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-2xl mb-5">👨‍🏫</div>
+          <h3 class="font-bold text-white text-xl mb-2">Personal Guidance</h3>
+          <p class="text-slate-300 leading-7 text-sm">
+            Better attention and support so every student can learn at the right pace.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+  <!-- USP REDESIGNED -->
+  <section id="usp" class="py-20 bg-softBg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center max-w-3xl mx-auto reveal">
+        <span class="text-secondary font-bold uppercase tracking-wider text-sm">Why Choose Us</span>
+        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-primary mt-3">
+          Better Learning with Better Support
+        </h2>
+      </div>
+
+      <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6" data-stagger-group>
+        <div class="usp-card reveal-left">
+          <div class="usp-icon">👨‍🏫</div>
+          <h3>Experienced Faculty</h3>
+          <p>Guidance from teachers who understand students and their learning gaps.</p>
+        </div>
+
+        <div class="usp-card reveal-left">
+          <div class="usp-icon">📘</div>
+          <h3>Clear Concepts</h3>
+          <p>Easy explanations that make difficult topics simple and understandable.</p>
+        </div>
+
+        <div class="usp-card reveal-left">
+          <div class="usp-icon">🧑‍🎓</div>
+          <h3>Personal Attention</h3>
+          <p>Focused support for every student through small batch learning.</p>
+        </div>
+
+        <div class="usp-card reveal-left">
+          <div class="usp-icon">📝</div>
+          <h3>Regular Practice</h3>
+          <p>Tests, revision, and doubt solving to improve confidence and results.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<!-- DIGITAL MARKETING SECTION -->
+<section id="digital" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center max-w-3xl mx-auto reveal">
+      <span class="text-secondary font-bold uppercase tracking-wider text-sm">Digital Marketing Classes</span>
+      <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-primary mt-3">
+        Practical Digital Marketing Training
+      </h2>
+      <p class="mt-5 text-slate-600 leading-8">
+        Learn job-ready and business-focused digital skills with practical tools, strategy, and live implementation.
+      </p>
+    </div>
+
+    <div class="mt-14 reveal rounded-[2rem] bg-primary text-white p-8 lg:p-10 shadow-xl">
+      <div class="grid lg:grid-cols-2 gap-10 items-start">
+
+        <div>
+          <span class="inline-block bg-white/10 px-4 py-2 rounded-full text-sm font-bold text-accent mb-5">
+            Skill-Based Learning
+          </span>
+
+          <h3 class="font-heading text-3xl font-extrabold mb-4">
+            Learn Digital Skills for Jobs, Freelancing & Business
+          </h3>
+
+          <p class="text-slate-300 leading-7">
+            This course covers important digital marketing skills like SEO, ads, social media, content, Canva, website basics and freelancing.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4" data-stagger-group>
+          <div class="course-item-dark reveal-zoom">SEO</div>
+          <div class="course-item-dark reveal-zoom">Social Media Marketing</div>
+          <div class="course-item-dark reveal-zoom">Google Ads</div>
+          <div class="course-item-dark reveal-zoom">Meta Ads</div>
+          <div class="course-item-dark reveal-zoom">Content Marketing</div>
+          <div class="course-item-dark reveal-zoom">Canva Designing</div>
+          <div class="course-item-dark reveal-zoom">Website Basics</div>
+          <div class="course-item-dark reveal-zoom">Freelancing</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SCHOOL COACHING SECTION -->
+<section id="academic" class="py-20 bg-softBg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center max-w-3xl mx-auto reveal">
+      <span class="text-secondary font-bold uppercase tracking-wider text-sm">School Coaching</span>
+      <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-primary mt-3">
+        Academic Support for Every Level
+      </h2>
+      <p class="mt-5 text-slate-600 leading-8">
+        Simple, focused, and result-oriented coaching for school students and competitive exam aspirants.
+      </p>
+    </div>
+
+    <div class="mt-14 reveal rounded-[2rem] bg-white border border-slate-200 p-8 lg:p-10 shadow-xl">
+      <div class="grid lg:grid-cols-2 gap-10 items-start">
+
+        <div>
+          <span class="inline-block bg-indigo-100 text-secondary px-4 py-2 rounded-full text-sm font-bold mb-5">
+            Classes + Competitive Preparation
+          </span>
+
+          <h3 class="font-heading text-3xl font-extrabold text-primary mb-4">
+            Strong Basics, Regular Practice & Exam-Focused Preparation
+          </h3>
+
+          <p class="text-slate-600 leading-7">
+            We provide coaching for different class levels along with focused support for JEE, NEET and IIT foundation preparation.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4 slow-stagger" data-stagger-group>
+          <div class="academic-card reveal-zoom">
+            <h4>Classes 1–8</h4>
+            <p>All subjects with foundation building.</p>
+          </div>
+
+          <div class="academic-card reveal-zoom">
+            <h4>Classes 9–10</h4>
+            <p>Board-focused Maths, Science and core subjects.</p>
+          </div>
+
+          <div class="academic-card reveal-zoom">
+            <h4>Classes 11–12</h4>
+            <p>Subject-wise support for senior classes.</p>
+          </div>
+
+          <div class="academic-card reveal-zoom">
+            <h4>JEE / NEET / IIT</h4>
+            <p>Focused preparation with concept clarity and practice.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-primary">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+      <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-white">
+        Start Your Learning Journey Today
+      </h2>
+      <p class="mt-5 text-slate-300 text-lg">
+        Choose the right course and get proper guidance from Bhvesa Classes.
+      </p>
+      <a href="#contact" class="mt-8 inline-flex bg-accent hover:bg-yellow-500 text-primary px-8 py-4 rounded-full font-bold transition">
+        Enquire Now
+      </a>
+    </div>
+  </section>
+
+ <!-- CONTACT FORM -->
+<section id="contact" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-start">
+
+    <!-- LEFT INFO -->
+    <div class="reveal">
+      <span class="text-secondary font-bold uppercase tracking-wider text-sm">Contact Us</span>
+
+      <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-primary mt-3">
+        Book a Demo or Enquire Now
+      </h2>
+
+      <p class="mt-5 text-slate-600 leading-8">
+        Select your course or class and we’ll help you with batch timing, fees, and admission details.
+      </p>
+
+      <div class="mt-8 space-y-4 text-slate-700">
+        <p><strong>Phone:</strong> +91 99118 26993  </p>
+        <p><strong>Email:</strong> info@bhvesaclasses.com</p>
+        <p><strong>Location:</strong> Add your institute address</p>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <form class="reveal bg-softBg rounded-[2rem] p-6 sm:p-8 border border-slate-200 shadow-xl">
+
+      <div class="grid sm:grid-cols-2 gap-5">
+
+        <!-- NAME -->
+        <div class="sm:col-span-2">
+          <label class="text-sm font-semibold text-slate-600 mb-2 block">Student Name</label>
+          <input type="text" placeholder="Enter full name" class="form-input" required>
+        </div>
+
+        <!-- PHONE -->
+        <div>
+          <label class="text-sm font-semibold text-slate-600 mb-2 block">Phone Number</label>
+          <input type="tel" placeholder="10 digit number" class="form-input" required>
+        </div>
+
+        <!-- EMAIL -->
+        <div>
+          <label class="text-sm font-semibold text-slate-600 mb-2 block">Email (Optional)</label>
+          <input type="email" placeholder="Enter email" class="form-input">
+        </div>
+
+        <!-- CATEGORY -->
+        <div>
+          <label class="text-sm font-semibold text-slate-600 mb-2 block">Category</label>
+          <select id="categorySelect" class="form-input" required>
+            <option value="">Select Category</option>
+            <option value="school">Coaching</option>
+            <option value="competitive">Competitive Coaching</option>
+            <option value="digital">Digital Marketing Classes</option>
+          </select>
+        </div>
+
+        <!-- COURSE -->
+        <div>
+          <label class="text-sm font-semibold text-slate-600 mb-2 block">Course / Class</label>
+          <select id="courseSelect" class="form-input" required>
+            <option value="">First select category</option>
+          </select>
+        </div>
+
+        <!-- MESSAGE -->
+        <div class="sm:col-span-2">
+          <label class="text-sm font-semibold text-slate-600 mb-2 block">Message</label>
+          <textarea rows="4" placeholder="Your requirement or query..." class="form-input"></textarea>
+        </div>
+
+        <!-- BUTTON -->
+        <div class="sm:col-span-2 mt-2">
+          <button type="submit"
+            class="w-full bg-secondary hover:bg-indigo-700 text-white py-4 rounded-full font-bold text-lg transition">
+            Submit Enquiry
+          </button>
+        </div>
+
+      </div>
+
+    </form>
+
+  </div>
+</section>
+
+  <!-- FOOTER -->
+  <footer class="bg-primary text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h3 class="font-heading text-xl font-bold">Bhvesa Classes</h3>
+      <p class="text-slate-400 mt-2">Academic Excellence & Digital Skill Training</p>
+      <p class="text-slate-500 mt-5 text-sm">
+  © 2026 Bhvesa Classes. All Rights Reserved.
+  <span class="mx-2">|</span>
+  <a href="privacy.html" class="hover:text-accent transition">Privacy Policy</a>
+</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
